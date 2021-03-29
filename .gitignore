@@ -17,8 +17,8 @@ config.env
 /build
 
 # misc
-*.env
 .DS_Store
+*.env
 config.env
 .env.local
 .env.development.local
