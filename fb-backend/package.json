@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "nodemon server.js"
-   },
+  },
   "author": "Sidhant Singh",
   "license": "ISC",
   "dependencies": {

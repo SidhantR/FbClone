@@ -1,9 +1,10 @@
 
-// import path from 'path'
-// const __dirname = path.resolve();
-// import dotenv from 'dotenv';
-// dotenv.config({path :path.join(__dirname, 'config.env') });
-import {MONGO_URI, PORT } from "./config.js"
+import path from 'path'
+const __dirname = path.resolve();
+import dotenv from 'dotenv';
+dotenv.config({path :path.join(__dirname, '../config.env') });
+// import MONGO from "./config.js"
+import {MONGO_URI } from "./config.js"
 import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
@@ -12,12 +13,12 @@ import GridFsStorage from 'multer-gridfs-storage'
 import Grid from 'gridfs-stream'
 import bodyParser from 'body-parser'
 import Pusher from 'pusher'
-
-
 import mongoPosts from './mongoPosts.js'
+
 
 Grid.mongo = mongoose.mongo  // to store images
 
+// const {MONGO_URI } = MONGO
 // app config 
 const app = express()
 const port = process.env.PORT || 9000
