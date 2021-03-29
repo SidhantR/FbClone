@@ -18,7 +18,7 @@ import mongoPosts from './mongoPosts.js'
 
 Grid.mongo = mongoose.mongo  // to store images
 
-// const {MONGO_URI } = MONGO
+const NODE_ENV = "production"
 // app config 
 const app = express()
 const port = process.env.PORT || 9000
@@ -36,16 +36,16 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors())
 
-// if(NODE_ENV === "production"){
-//     app.use(express.static(path.join(__dirname, '/facebook-clone/build')))
-//     app.get('*' , (req,res) => {
-//         res.sendFile(path.join(__dirname, 'client' , 'build', 'index.html'))
-//     })
-// } else {
-//     app.get('/', (req,res) => {
-//         res.send("Api running")
-//     })
-// }
+if(NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, '/facebook-clone/build')))
+    app.get('*' , (req,res) => {
+        res.sendFile(path.join(__dirname, 'client' , 'build', 'index.html'))
+    })
+} else {
+    app.get('/', (req,res) => {
+        res.send("Api running")
+    })
+}
 
 // db config 
 
