@@ -36,7 +36,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors())
 
-if(NODE_ENV === "production"){
+if(process.env.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname, '/facebook-clone/build')))
     app.get('*' , (req,res) => {
         res.sendFile(path.join(__dirname, 'facebook-clone' , 'build', 'index.html'))
